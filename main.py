@@ -48,7 +48,7 @@ class PhoneBook:
         """
         if contact is not None:
             with open(self.filename, 'a', encoding='utf-8') as file:
-                line =  '\n' + ', '.join(contact.values())
+                line = '\n' + ', '.join(contact.values())
                 file.write(line)
                 return
 
