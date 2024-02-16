@@ -46,14 +46,15 @@ class PhoneBook:
         Сохранение записей из справочника в файл.
         :param contact: запись в телефонном справочнике.
         """
-        with open(self.filename, 'a', encoding='utf-8') as file:
-            if contact is not None:
-                line = '\n' + ', '.join(contact.values())
+        if contact is not None:
+            with open(self.filename, 'a', encoding='utf-8') as file:
+                line =  '\n' + ', '.join(contact.values())
                 file.write(line)
                 return
 
+        with open(self.filename, 'w', encoding='utf-8') as file:
             for contact in self.contacts:
-                line = '\n' + ', '.join(contact.values())
+                line = ', '.join(contact.values()) + '\n'
                 file.write(line)
 
     def display_contacts(self, page_size: int = None) -> None:
